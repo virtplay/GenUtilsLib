@@ -15,6 +15,7 @@
 		D73E58A9233E1CC700170DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73E58A7233E1CC700170DDD /* Main.storyboard */; };
 		D73E58AB233E1CC900170DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D73E58AA233E1CC900170DDD /* Assets.xcassets */; };
 		D73E58AE233E1CC900170DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D73E58AC233E1CC900170DDD /* LaunchScreen.storyboard */; };
+		D73E58B4233E21AD00170DDD /* GenUtilsLib.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73E58B3233E21AD00170DDD /* GenUtilsLib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		D73E58AA233E1CC900170DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D73E58AD233E1CC900170DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D73E58AF233E1CC900170DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D73E58B3233E21AD00170DDD /* GenUtilsLib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenUtilsLib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				D73E5886233E1BF000170DDD /* GenUtilsLib.h */,
 				D73E5887233E1BF000170DDD /* Info.plist */,
+				D73E58B3233E21AD00170DDD /* GenUtilsLib.swift */,
 			);
 			path = GenUtilsLib;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				TargetAttributes = {
 					D73E5882233E1BF000170DDD = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					D73E588B233E1BF000170DDD = {
 						CreatedOnToolsVersion = 10.3;
@@ -260,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D73E58B4233E21AD00170DDD /* GenUtilsLib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +440,7 @@
 		D73E5898233E1BF000170DDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -452,6 +458,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.moback.GenUtilsLib;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -460,6 +467,7 @@
 		D73E5899233E1BF000170DDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -485,6 +493,7 @@
 		D73E589B233E1BF000170DDD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3GPX7CY37;
 				INFOPLIST_FILE = GenUtilsLibTests/Info.plist;
@@ -503,6 +512,7 @@
 		D73E589C233E1BF000170DDD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R3GPX7CY37;
 				INFOPLIST_FILE = GenUtilsLibTests/Info.plist;
