@@ -38,6 +38,12 @@ class GenUtilsLibTests: XCTestCase {
     func testDivide() {
         XCTAssertEqual(genUtilsLib.divide(a: 5, b: 1), 5)
     }
+    
+    func testPercentageForScreenWidthAndHeight(){
+        XCTAssertNotNil(genUtilsLib.getWidthForPercent(percent: 15))
+        XCTAssertNotNil(genUtilsLib.getWidthForPercentNReturnInt(percent: 15))
+        XCTAssertNotNil(genUtilsLib.getHeightForPercent(percent: 15))
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

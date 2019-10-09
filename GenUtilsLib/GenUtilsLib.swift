@@ -29,5 +29,25 @@ public final class GenUtilsLib {
         return a / b
     }
     
+    public func getWidthForPercent(percent:Float)-> Float{
+        let screenWidth =  Float(UIScreen.main.bounds.width) * (percent/100)
+        return screenWidth
+    }
+    
+    public func getHeightForPercent(percent:Float)->Float{
+        let screenHeight =  Float(UIScreen.main.bounds.height) * (percent/100)
+        return screenHeight
+    }
+    
+    public func getWidthForPercentNReturnInt(percent:Float)-> Int{
+        let screenWidth =  Float(UIScreen.main.bounds.width) * (percent/100)
+        return Int(screenWidth)
+    }
+    
+    public func getHeightForPercentNReturnInt(percent:Float)->Int{
+        let screenHeight =  Float(UIScreen.main.bounds.height) * (percent/100)
+        return Int(screenHeight)
+    }
+    
     
 }
