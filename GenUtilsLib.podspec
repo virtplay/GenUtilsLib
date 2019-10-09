@@ -9,11 +9,12 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "GenUtilsLib"
-spec.version      = "0.0.1"
-spec.summary      = "A short description of GenUtilsLib which does basic math functions."
+spec.version      = "0.0.2"
+spec.summary      = "Description of GenUtilsLib which does basic math functions, Dynamic height and width functions."
 
 spec.description  = <<-DESC
 This CocoaPods library helps you perform calculation like addition, subtraction, multiplication and division.
+API's to get the dynamic width and height of screen for the required percentage.
 DESC
 
 spec.homepage     = "https://github.com/virtplay/GenUtilsLib"
