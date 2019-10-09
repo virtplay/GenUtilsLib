@@ -40,9 +40,19 @@ class GenUtilsLibTests: XCTestCase {
     }
     
     func testPercentageForScreenWidthAndHeight(){
-        XCTAssertNotNil(genUtilsLib.getWidthForPercent(percent: 15))
+        XCTAssertNotNil(genUtilsLib.getWidthFor(percent: 15))
         XCTAssertNotNil(genUtilsLib.getWidthForPercentNReturnInt(percent: 15))
-        XCTAssertNotNil(genUtilsLib.getHeightForPercent(percent: 15))
+        XCTAssertNotNil(genUtilsLib.getHeightFor(percent: 15))
+        XCTAssertNotNil(genUtilsLib.getHeightForPercentNReturnInt(percent: 15))
+        
+    }
+    
+    func testDateToStringConversions(){
+        XCTAssertNotNil(genUtilsLib.getCurrentTime())
+        XCTAssertNotNil(genUtilsLib.getDay(time: Int(Date().timeIntervalSince1970 * 1000)))
+        XCTAssertNotNil(genUtilsLib.getTime(time: Int(Date().timeIntervalSince1970 * 1000)))
+        XCTAssertNotNil(genUtilsLib.getTimeForMessage(time: Int(Date().timeIntervalSince1970 * 1000)))
+        
     }
 
     func testPerformanceExample() {
