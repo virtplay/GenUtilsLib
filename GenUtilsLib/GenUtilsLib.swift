@@ -255,28 +255,6 @@ extension Date {
     }
 }
 
-// Extension UIButton for text with indent space
-extension UIButton{
-    func setAttributedStrWithSpace(kernValue:Double = 1.0){
-        if let labelText = titleLabel?.text, labelText.count > 0 {
-            let attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
-            setAttributedTitle(attributedString, for: self.state)
-        }
-    }
-}
-
-// Extension UILabel for text with indent space
-extension UILabel {
-    func setAttributedStrWithSpace(kernValue: Double = 1.0) {
-        if let labelText = text, labelText.count > 0 {
-            let attributedString = NSMutableAttributedString(string: labelText)
-            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
-            attributedText = attributedString
-        }
-    }
-}
-
 extension Int {
     
     // convert given number to str format : 1K, 4M, 9B

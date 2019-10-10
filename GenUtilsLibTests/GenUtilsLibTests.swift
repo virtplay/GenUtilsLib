@@ -83,7 +83,11 @@ class GenUtilsLibTests: XCTestCase {
         XCTAssertNotNil(sampleDate.toTimeString())
         XCTAssertNotNil(sampleDate.toDayWeekString())
         
+    }
+    
+    func testStringExtensionAPIs() {
         // To convert string(having date) in ical style to other formats date/strings
+        let sampleDate = Date()
         let dateStr = sampleDate.toString()
         XCTAssertNotNil(dateStr.toDate())
         XCTAssertNotNil(dateStr.toDayWeekString())
