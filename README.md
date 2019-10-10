@@ -27,3 +27,19 @@ Usage:
         
         print("Get time from the given date:\(genUtilsLib.getTime(time: dateint))")
         print("Get time from the given date for messenger/sms usage format:\(genUtilsLib.getTimeForMessage(time: dateint))")
+        
+        
+Sample Output:
+
+        current time: 11:45
+        2 + 5 is 7
+        5 - 2 is 3
+        2 * 5 is 10
+        5 / 2 is 2
+        Get height for percent 23: 206.08
+        Get height for percent 23 in integer: 206
+        Get width for percent 23: 95.22
+        Get width for percent 23 in integer: 95
+        Get day from the given date:10 Oct, 2019
+        Get time from the given date:1 min
+        Get time from the given date for messenger/sms usage format:11:44
