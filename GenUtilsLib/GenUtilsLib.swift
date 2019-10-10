@@ -113,7 +113,7 @@ public final class GenUtilsLib {
         let currentdate = Date(timeIntervalSinceNow: 0)
         let mins = currentdate.minutes(from: date)
 //        print("mins: \(mins)")
-        
+
         let hours = currentdate.hours(from: date)
         if(hours>24){
             let days = currentdate.days(from: date)
