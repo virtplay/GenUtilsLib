@@ -376,7 +376,7 @@ extension String {
     /// Convert String to Date for calendar in format
     public func toDateString() -> String? {
         let date = String.dateFormatter.date(from: self) // complete Date
-        print("1. date: \(date)")
+//        print("1. date: \(date)")
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMM yyyy"
         return formatter.string(from: date!)
@@ -407,7 +407,7 @@ extension String {
     public func toDate() -> Date? {
         //        print("Date before here: \(self)")
         let date = String.dateFormatter.date(from: self) // complete Date
-        print("Date here: \(String(describing: date))")
+//        print("Date here: \(String(describing: date))")
         return date
     }
     
