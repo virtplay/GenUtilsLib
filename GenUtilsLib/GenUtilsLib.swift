@@ -13,6 +13,8 @@ public final class GenUtilsLib {
     
     let name = "GenUtilsLib"
     
+    public init() {}
+    
     // Basic Math functions
     public func add(a: Int, b: Int) -> Int {
         return a + b
