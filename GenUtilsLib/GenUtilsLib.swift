@@ -254,3 +254,221 @@ extension Date {
         return Int((self.timeIntervalSince1970 * 1000.0).rounded())
     }
 }
+
+// Extension UIButton for text with indent space
+extension UIButton{
+    func setAttributedStrWithSpace(kernValue:Double = 1.0){
+        if let labelText = titleLabel?.text, labelText.count > 0 {
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
+            setAttributedTitle(attributedString, for: self.state)
+        }
+    }
+}
+
+// Extension UILabel for text with indent space
+extension UILabel {
+    func setAttributedStrWithSpace(kernValue: Double = 1.0) {
+        if let labelText = text, labelText.count > 0 {
+            let attributedString = NSMutableAttributedString(string: labelText)
+            attributedString.addAttribute(NSAttributedString.Key.kern, value: kernValue, range: NSRange(location: 0, length: attributedString.length - 1))
+            attributedText = attributedString
+        }
+    }
+}
+
+extension Int {
+    
+    // convert given number to str format : 1K, 4M, 9B
+    func convertToMetric () -> String {
+        let numFormatter = NumberFormatter()
+        
+        typealias Abbrevation = (threshold:Double, divisor:Double, suffix:String)
+        let abbreviations:[Abbrevation] = [(0, 1, ""),
+                                           (1000.0, 1000.0, "K"),
+                                           (100_000.0, 1_000_000.0, "M"),
+                                           (100_000_000.0, 1_000_000_000.0, "B")]
+        // you can add more !
+        
+        let startValue = Double (abs(self))
+        let abbreviation:Abbrevation = {
+            var prevAbbreviation = abbreviations[0]
+            for tmpAbbreviation in abbreviations {
+                if (startValue < tmpAbbreviation.threshold) {
+                    break
+                }
+                prevAbbreviation = tmpAbbreviation
+            }
+            return prevAbbreviation
+        } ()
+        
+        let value = Double(self) / abbreviation.divisor
+        numFormatter.positiveSuffix = abbreviation.suffix
+        numFormatter.negativeSuffix = abbreviation.suffix
+        numFormatter.allowsFloats = true
+        numFormatter.minimumIntegerDigits = 1
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 1
+        
+        return numFormatter.string(from: NSNumber (value:value))!
+    }
+    
+    // convert given number to str format : to get result with fractions : 1.4K, 5.8M...
+    func convertToMetricWithOutFraction () -> String {
+        let numFormatter = NumberFormatter()
+        
+        typealias Abbrevation = (threshold:Double, divisor:Double, suffix:String)
+        let abbreviations:[Abbrevation] = [(0, 1, ""),
+                                           (1000.0, 1000.0, "K"),
+                                           (100_000.0, 1_000_000.0, "M"),
+                                           (100_000_000.0, 1_000_000_000.0, "B")]
+        // you can add more !
+        
+        let startValue = Double (abs(self))
+        let abbreviation:Abbrevation = {
+            var prevAbbreviation = abbreviations[0]
+            for tmpAbbreviation in abbreviations {
+                if (startValue < tmpAbbreviation.threshold) {
+                    break
+                }
+                prevAbbreviation = tmpAbbreviation
+            }
+            return prevAbbreviation
+        } ()
+        
+        let value = Double(self) / abbreviation.divisor
+        numFormatter.positiveSuffix = abbreviation.suffix
+        numFormatter.negativeSuffix = abbreviation.suffix
+        numFormatter.allowsFloats = true
+        numFormatter.minimumIntegerDigits = 1
+        numFormatter.minimumFractionDigits = 0
+        numFormatter.maximumFractionDigits = 0 // Change this for fraction value
+        
+        return numFormatter.string(from: NSNumber (value:value))!
+    }
+    
+    // Get only type of metric string for given number: Thousand, Million, Billion
+    func convertToMetricStr() -> String {
+        let alphabet = String(convertToMetric().last!)
+        switch alphabet {
+        case "K":
+            return "Thousand"
+        case "M":
+            return "Million"
+        case "B":
+            return "Billion"
+        default:
+            return ""
+        }
+    }
+    
+}
+
+extension String {
+    
+    func fileName() -> String {
+        return NSURL(fileURLWithPath: self).deletingPathExtension?.lastPathComponent ?? ""
+    }
+    
+    func fileExtension() -> String {
+        return NSURL(fileURLWithPath: self).pathExtension ?? ""
+    }
+    
+    /// TODO add documentation
+    func toKeyValuePair(splittingOn separator: Character) -> (first: String, second: String)? {
+        let arr = self.split(separator: separator,
+                             maxSplits: 1,
+                             omittingEmptySubsequences: false)
+        if arr.count < 2 {
+            return nil
+        } else {
+            return (String(arr[0]), String(arr[1]))
+        }
+    }
+    
+    private static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd'T'HHmmssZ"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        //        dateFormatter.dateFormat = "dd MMM yyyy"
+        
+        return dateFormatter
+    }()
+    
+    /// Convert String to Date for calendar in format
+    func toDateString() -> String? {
+        let date = String.dateFormatter.date(from: self) // complete Date
+        print("1. date: \(date)")
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMM yyyy"
+        return formatter.string(from: date!)
+    }
+    
+    func toDayNumString() -> String? {
+        let date = String.dateFormatter.date(from: self) // complete Date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        return formatter.string(from: date!)
+    }
+    
+    func toDayWeekString() -> String? {
+        let date = String.dateFormatter.date(from: self) // complete Date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EE"
+        return formatter.string(from: date!)
+    }
+    
+    func toTimeString() -> String? {
+        let date = String.dateFormatter.date(from: self) // complete Date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        formatter.timeZone = TimeZone(identifier: "UTC")
+        return formatter.string(from: date!)
+    }
+    
+    func toDate() -> Date? {
+        //        print("Date before here: \(self)")
+        let date = String.dateFormatter.date(from: self) // complete Date
+        print("Date here: \(String(describing: date))")
+        return date
+    }
+    
+    //    func toStringForDTSTART() -> String? {
+    //        var start = String.Index(encodedOffset: 0)
+    //        var end = String.Index(encodedOffset: 3)
+    //        let yearString = String(self[start...end])
+    //
+    //        print("yearstr: \(yearString)")
+    //
+    //        start = String.Index(encodedOffset: 4)
+    //        end = String.Index(encodedOffset: 5)
+    //        let monthString = String(self[start...end])
+    //
+    //        print("yearstr: \(yearString)")
+    //
+    //        start = String.Index(encodedOffset: 6)
+    //        end = String.Index(encodedOffset: 7)
+    //        let dayString = String(self[start...end])
+    //
+    //        var monthStringIn3Letters:String?
+    //        switch monthString {
+    //        case "01":monthStringIn3Letters = "JAN"
+    //        case "02":monthStringIn3Letters = "FEB"
+    //        case "03":monthStringIn3Letters = "MAR"
+    //        case "04":monthStringIn3Letters = "APR"
+    //        case "05":monthStringIn3Letters = "MAY"
+    //        case "06":monthStringIn3Letters = "JUN"
+    //        case "07":monthStringIn3Letters = "JUL"
+    //        case "08":monthStringIn3Letters = "AUG"
+    //        case "09":monthStringIn3Letters = "SEP"
+    //        case "10":monthStringIn3Letters = "OCT"
+    //        case "11":monthStringIn3Letters = "NOV"
+    //        case "12":monthStringIn3Letters = "DEC"
+    //        default:
+    //            monthStringIn3Letters = ""
+    //        }
+    //        return "\(dayString) \(monthStringIn3Letters!) \(yearString)"
+    //
+    //    }
+    
+}
