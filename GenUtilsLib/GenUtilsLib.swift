@@ -160,35 +160,35 @@ public final class GenUtilsLib {
  */
 extension Date {
     /// Returns the amount of years from another date
-    func years(from date: Date) -> Int {
+    public func years(from date: Date) -> Int {
         return Calendar.current.dateComponents([.year], from: date, to: self).year ?? 0
     }
     /// Returns the amount of months from another date
-    func months(from date: Date) -> Int {
+    public func months(from date: Date) -> Int {
         return Calendar.current.dateComponents([.month], from: date, to: self).month ?? 0
     }
     /// Returns the amount of weeks from another date
-    func weeks(from date: Date) -> Int {
+    public func weeks(from date: Date) -> Int {
         return Calendar.current.dateComponents([.weekOfMonth], from: date, to: self).weekOfMonth ?? 0
     }
     /// Returns the amount of days from another date
-    func days(from date: Date) -> Int {
+    public func days(from date: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: date, to: self).day ?? 0
     }
     /// Returns the amount of hours from another date
-    func hours(from date: Date) -> Int {
+    public func hours(from date: Date) -> Int {
         return Calendar.current.dateComponents([.hour], from: date, to: self).hour ?? 0
     }
     /// Returns the amount of minutes from another date
-    func minutes(from date: Date) -> Int {
+    public func minutes(from date: Date) -> Int {
         return Calendar.current.dateComponents([.minute], from: date, to: self).minute ?? 0
     }
     /// Returns the amount of seconds from another date
-    func seconds(from date: Date) -> Int {
+    public func seconds(from date: Date) -> Int {
         return Calendar.current.dateComponents([.second], from: date, to: self).second ?? 0
     }
     /// Returns the a custom time interval description from another date
-    func offset(from date: Date) -> String {
+    public func offset(from date: Date) -> String {
         if years(from: date)   > 0 { return "\(years(from: date))y"   }
         if months(from: date)  > 0 { return "\(months(from: date)) mon"  }
         if weeks(from: date)   > 0 { return "\(weeks(from: date))w"   }
@@ -200,7 +200,7 @@ extension Date {
     }
     
     // To convert date to ical style UTC string format
-    func toString() -> String {
+    public func toString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyyMMdd'T'HHmmss'Z'"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -210,7 +210,7 @@ extension Date {
     }
     
     // To convert date to string format: dd MMM yyyy
-    func toDateString() -> String? {
+    public func toDateString() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMM yyyy"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -220,7 +220,7 @@ extension Date {
     }
     
     // To convert date to day number format: dd
-    func toDayNumString() -> String? {
+    public func toDayNumString() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -230,7 +230,7 @@ extension Date {
     }
     
     // To convert date to week number format: EE
-    func toDayWeekString() -> String? {
+    public func toDayWeekString() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EE"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -240,7 +240,7 @@ extension Date {
     }
     
     // To convert date to time format with am/pm: HH:mm a
-    func toTimeString() -> String? {
+    public func toTimeString() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm a"
         dateFormatter.timeZone = TimeZone(identifier: "UTC")
@@ -250,7 +250,7 @@ extension Date {
     }
     
     // Converts date to Milliseconds usage Eg: Date().millisecondsSince1970 // 1476889390939
-    var millisecondsSince1970:Int {
+    public var millisecondsSince1970:Int {
         return Int((self.timeIntervalSince1970 * 1000.0).rounded())
     }
 }
@@ -258,7 +258,7 @@ extension Date {
 extension Int {
     
     // convert given number to str format : 1K, 4M, 9B
-    func convertToMetric () -> String {
+    public func convertToMetric () -> String {
         let numFormatter = NumberFormatter()
         
         typealias Abbrevation = (threshold:Double, divisor:Double, suffix:String)
@@ -292,7 +292,7 @@ extension Int {
     }
     
     // convert given number to str format : to get result with fractions : 1.4K, 5.8M...
-    func convertToMetricWithOutFraction () -> String {
+    public func convertToMetricWithOutFraction () -> String {
         let numFormatter = NumberFormatter()
         
         typealias Abbrevation = (threshold:Double, divisor:Double, suffix:String)
@@ -326,7 +326,7 @@ extension Int {
     }
     
     // Get only type of metric string for given number: Thousand, Million, Billion
-    func convertToMetricStr() -> String {
+    public func convertToMetricStr() -> String {
         let alphabet = String(convertToMetric().last!)
         switch alphabet {
         case "K":
@@ -344,16 +344,16 @@ extension Int {
 
 extension String {
     
-    func fileName() -> String {
+    public func fileName() -> String {
         return NSURL(fileURLWithPath: self).deletingPathExtension?.lastPathComponent ?? ""
     }
     
-    func fileExtension() -> String {
+    public func fileExtension() -> String {
         return NSURL(fileURLWithPath: self).pathExtension ?? ""
     }
     
     /// TODO add documentation
-    func toKeyValuePair(splittingOn separator: Character) -> (first: String, second: String)? {
+    public func toKeyValuePair(splittingOn separator: Character) -> (first: String, second: String)? {
         let arr = self.split(separator: separator,
                              maxSplits: 1,
                              omittingEmptySubsequences: false)
@@ -374,7 +374,7 @@ extension String {
     }()
     
     /// Convert String to Date for calendar in format
-    func toDateString() -> String? {
+    public func toDateString() -> String? {
         let date = String.dateFormatter.date(from: self) // complete Date
         print("1. date: \(date)")
         let formatter = DateFormatter()
@@ -382,21 +382,21 @@ extension String {
         return formatter.string(from: date!)
     }
     
-    func toDayNumString() -> String? {
+    public func toDayNumString() -> String? {
         let date = String.dateFormatter.date(from: self) // complete Date
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"
         return formatter.string(from: date!)
     }
     
-    func toDayWeekString() -> String? {
+    public func toDayWeekString() -> String? {
         let date = String.dateFormatter.date(from: self) // complete Date
         let formatter = DateFormatter()
         formatter.dateFormat = "EE"
         return formatter.string(from: date!)
     }
     
-    func toTimeString() -> String? {
+    public func toTimeString() -> String? {
         let date = String.dateFormatter.date(from: self) // complete Date
         let formatter = DateFormatter()
         formatter.dateFormat = "hh:mm a"
@@ -404,7 +404,7 @@ extension String {
         return formatter.string(from: date!)
     }
     
-    func toDate() -> Date? {
+    public func toDate() -> Date? {
         //        print("Date before here: \(self)")
         let date = String.dateFormatter.date(from: self) // complete Date
         print("Date here: \(String(describing: date))")
