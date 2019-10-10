@@ -68,11 +68,11 @@ public final class GenUtilsLib {
     public func getTime(time:Int) -> String {
         
         let date = Date(timeIntervalSince1970: Double(time/1000))
-        print("date: \(date)")
+//        print("date: \(date)")
         
         let currentdate = Date(timeIntervalSinceNow: 0)
         let mins = currentdate.minutes(from: date)
-        print("mins: \(mins)")
+//        print("mins: \(mins)")
         if(mins>60){
             let hours = currentdate.hours(from: date)
             if(hours>24){
@@ -108,11 +108,11 @@ public final class GenUtilsLib {
     public func getTimeForMessage(time:Int) -> String {
         
         let date = Date(timeIntervalSince1970: Double(time/1000))
-        print("date: \(date)")
+//        print("date: \(date)")
         
         let currentdate = Date(timeIntervalSinceNow: 0)
         let mins = currentdate.minutes(from: date)
-        print("mins: \(mins)")
+//        print("mins: \(mins)")
         
         let hours = currentdate.hours(from: date)
         if(hours>24){

@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "GenUtilsLib"
-spec.version      = "0.0.3"
+spec.version      = "0.0.5"
 spec.summary      = "Description of GenUtilsLib which does basic math functions, Dynamic height and width functions."
 
 spec.description  = <<-DESC
