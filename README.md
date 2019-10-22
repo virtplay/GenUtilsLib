@@ -136,3 +136,58 @@ Sample Output 3:
         Filename from absolute path: x
         File extension from absolute path: jpg
         
+Usage set 4:
+
+        let rangeParam = 0..<10
+        let num:Int = 2
+        let obj1 = genUtilsLib.generateRandomNumsForRange(item: num, range1: rangeParam)
+        print("random number 1: \(obj1)")
+        let rangeParam1 = Float(0.0)..<Float(10.0)
+        let numf:Float = 2.0
+        let obj3 = genUtilsLib.generateRandomNumsForRange(item: numf, range1: rangeParam1)
+        print("random number 1: \(obj3)")
+        
+        let closerangeParam = 0...10
+        let obj2 = genUtilsLib.generateRandomNumsForClosedRange(item: num, range2: closerangeParam)
+        let closerangeParam1 = Float(0)...Float(10)
+        let obj4 = genUtilsLib.generateRandomNumsForClosedRange(item: numf, range2: closerangeParam1)
+        print("random number 2: \(obj2), float num:\(obj4)")
+        
+        let length = 10
+        let rnstr = genUtilsLib.generateRandomStrOf(length: length)
+        let alphanrnstr = genUtilsLib.generateRandomAlphaNumbericStrOf(length: length)
+        print("Random alpha numeric string :\(alphanrnstr), alpha string:\(rnstr) of length:\(length)")
+        
+Sample output 4:
+        
+        random number 1: 3
+        random number 1: 8.247364
+        random number 2: 9, float num:4.4379115
+        random number 1: 4
+        random number 1: 9.72094
+        random number 2: 5, float num:4.930835
+        random number 1: 2
+        random number 1: 4.2926607
+        random number 2: 10, float num:5.9136767
+        random number 1: 5
+        random number 1: 6.8834515
+        random number 2: 6, float num:7.584736
+        random number 1: 0
+        random number 1: 8.974448
+        random number 2: 8, float num:8.058499
+        random number 1: 6
+        random number 1: 2.396661
+        random number 2: 0, float num:9.370275
+        random number 1: 5
+        random number 1: 2.5742245
+        random number 2: 1, float num:3.7711782
+        random number 1: 0
+        random number 1: 5.217782
+        random number 2: 9, float num:0.7126498
+        random number 1: 8
+        random number 1: 3.7407172
+        random number 2: 9, float num:6.306155
+        random number 1: 2
+        random number 1: 8.1746435
+        random number 2: 5, float num:7.1632886
+        Random alpha numeric string :MvTLKbLGme, alpha string:LvTJqsLvNO of length:10
