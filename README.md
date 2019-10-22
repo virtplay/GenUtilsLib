@@ -1,7 +1,7 @@
 # GenUtilsLib . [![Build Status](https://travis-ci.org/virtplay/GenUtilsLib.svg?branch=master)](https://travis-ci.org/virtplay/GenUtilsLib)
-General utility methods for application easy usage.
+General utility methods for IOS application easy usage.
 
-This is a library which provides APIs for general methods/functionalities which are majorly used in IOS applications.
+This is a library which provides APIs for general methods/functionalities which are used in IOS applications. Like conversion from Date to string, Calculating dynamic width and height of needed percentage wrt screen. Various calendar, date conversions, to get filename having absolute path, to get file extension having absolute path, to get random numbers(Int, Float, Double) generated and also to generate random alphanumeric of given length. 
 
 Installation:
 GenUtilsLib library is available through CocoaPods. To install it, simply add the following line to your Podfile:
