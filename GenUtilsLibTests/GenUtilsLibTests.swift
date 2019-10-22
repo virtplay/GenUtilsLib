@@ -104,6 +104,39 @@ class GenUtilsLibTests: XCTestCase {
         XCTAssertNotNil(filepath.fileExtension())
         
     }
+    
+    func testRandomGeneratorAPIs() {
+        let rangeParam = 0..<10
+        let num:Int = 2
+        let obj1 = genUtilsLib.generateRandomNumsForRange(item: num, range1: rangeParam)
+        XCTAssertNotNil(obj1)
+        XCTAssertNotEqual(obj1, -1)
+//        print("rand number 1: \(obj1)")
+        let rangeParam1 = Float(0.0)..<Float(10.0)
+        let numf:Float = 2.0
+        let obj3 = genUtilsLib.generateRandomNumsForRange(item: numf, range1: rangeParam1)
+        XCTAssertNotNil(obj3)
+        XCTAssertNotEqual(obj3, -1)
+//        print("rand number 1: \(obj3)")
+        
+        let closerangeParam = 0...10
+        let obj2 = genUtilsLib.generateRandomNumsForClosedRange(item: num, range2: closerangeParam)
+        let closerangeParam1 = Float(0)...Float(10)
+        let obj4 = genUtilsLib.generateRandomNumsForClosedRange(item: numf, range2: closerangeParam1)
+//        print("rand number 2: \(obj2), float num:\(obj4)")
+        XCTAssertNotNil(obj2)
+        XCTAssertNotEqual(obj2, 0)
+        XCTAssertNotNil(obj4)
+        XCTAssertNotEqual(obj4, 0)
+        
+        
+        let length = 10
+        let rnstr = genUtilsLib.generateRandomStrOf(length: length)
+        let alphanrnstr = genUtilsLib.generateRandomAlphaNumbericStrOf(length: length)
+//        print("Random alpha numeric string :\(alphanrnstr), normal string:\(rnstr) of length:\(length)")
+        XCTAssertNotNil(rnstr)
+        XCTAssertNotNil(alphanrnstr)
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

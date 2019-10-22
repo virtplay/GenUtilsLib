@@ -151,6 +151,63 @@ public final class GenUtilsLib {
         return timeString
     }
     
+    // Generate Random numbers/string
+    // Generate Random numbers and random alpha numeric and random alphabets string
+    // API to generate random number(Int, Float, Double) of given Range
+    public func generateRandomNumsForRange<P,T:Comparable>(item: P, range1: Range<T>) -> T {
+        
+        if item is Int {
+            let num = Int.random(in: range1 as! Range<Int>)
+            return num as! T
+        }
+        
+        if item is Float {
+            let num = Float.random(in: range1 as! Range<Float>)
+            return num as! T
+        }
+        
+        if item is Double {
+            let num = Double.random(in: range1 as! Range<Double>)
+            return num as! T
+        }
+        
+        let const = -1
+        return const as! T
+    }
+    
+    // API to generate random number(Int, Float, Double) of given ClosedRange
+    public func generateRandomNumsForClosedRange<P,T:Comparable>(item: P, range2: ClosedRange<T>) -> T {
+        
+        if item is Int {
+            let num = Int.random(in: range2 as! ClosedRange<Int>)
+            return num as! T
+        }
+        
+        if item is Float {
+            let num = Float.random(in: range2 as! ClosedRange<Float>)
+            return num as! T
+        }
+        
+        if item is Double {
+            let num = Double.random(in: range2 as! ClosedRange<Double>)
+            return num as! T
+        }
+        
+        let const = -1
+        return const as! T
+    }
+    
+    // API to generate random alphanumeric string of given length
+    public func generateRandomAlphaNumbericStrOf(length: Int) -> String {
+        let letters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
+    // API to generate random alphabets string of given length
+    public func generateRandomStrOf(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
     
 }
 
