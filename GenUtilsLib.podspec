@@ -9,7 +9,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "GenUtilsLib"
-spec.version      = "0.1.0"
+spec.version      = "0.1.1"
 spec.summary      = "Description of GenUtilsLib which does basic math functions, Dynamic height and width functions."
 
 spec.description  = <<-DESC
@@ -24,6 +24,7 @@ Get Time string to show in sms/messenger time stamp in format:1 day, 2 days,1 mo
 Get current time in format: hh:mm
 Extension of Date to get values for each param in date for year, months, weeks, days, hours, minutes, seconds. And convert date to ical style UTC, to string format: dd MMM yyyy, to day number format: dd, to week number format: EE, to time format with am/pm: HH:mm a, to Milliseconds
 Extension of String to convert string(having date) to type date and other string formats.
+Random number generators(Int, Float, Double) and also random alphanumeric and alpha string generators.
 DESC
 
 spec.homepage     = "https://github.com/virtplay/GenUtilsLib"
