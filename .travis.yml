@@ -2,4 +2,4 @@ language: swift
 xcode_project: GenUtilsLib.xcodeproj # path to your xcodeproj folder
 xcode_scheme: GenUtilsLib
 xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
-osx_image: 10.3
+osx_image: xcode10.3
